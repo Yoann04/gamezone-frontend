@@ -1,0 +1,13 @@
+<h2>Catégories</h2>
+
+@if (categories.length === 0) {
+<p>Aucune catégorie.</p>
+} @else {
+<ul>
+  @for (c of categories; track c.id) {
+  <li>
+    <a [routerLink]="['/categories', c.slug]">{{ c.name }}</a>
+  </li>
+  }
+</ul>
+}

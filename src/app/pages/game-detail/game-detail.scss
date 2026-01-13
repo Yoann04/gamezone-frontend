@@ -1,0 +1,49 @@
+.back {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: #ffb4b4;
+}
+
+.game-detail__header {
+  margin-bottom: 1rem;
+}
+
+.game-detail__title {
+  margin: 0 0 0.4rem 0;
+}
+
+.game-detail__meta {
+  margin: 0.25rem 0;
+  color: var(--color-muted);
+
+  a {
+    font-weight: 700;
+  }
+}
+
+.game-detail__cover {
+  width: 100%;
+  max-width: 900px;
+
+  height: auto;
+  max-height: 520px;
+
+  object-fit: contain;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: block;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+@media (max-width: 640px) {
+  .game-detail__cover {
+    max-height: 320px;
+  }
+}
+
+.game-detail__desc {
+  margin-top: 1rem;
+}

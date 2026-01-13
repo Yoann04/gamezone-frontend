@@ -1,0 +1,245 @@
+.hero {
+  width: 100vw;
+  height: 420px;
+
+  margin-top: -2rem;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  background-image: url('/assets/hero/HeroTheme.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* TITRE */
+.hero__title {
+  position: relative;
+  z-index: 2;
+
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  background: linear-gradient(90deg, #7c6cff, #b56cff, #e06cff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  text-shadow: 0 0 10px rgba(124, 108, 255, 0.6), 0 0 25px rgba(181, 108, 255, 0.5),
+    0 0 40px rgba(224, 108, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 2.8rem;
+    letter-spacing: 1px;
+  }
+}
+
+/* ASSOMBRISSEMENT GLOBAL */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 5, 25, 0.35);
+  z-index: 1;
+}
+
+/* FLOU HAUT */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+
+  background: rgba(10, 5, 25, 0.6);
+  z-index: 2;
+}
+
+/* FLOU BAS */
+.hero__blur-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+
+  background: rgba(10, 5, 25, 0.9);
+  z-index: 2;
+}
+
+.home-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.home-kicker {
+  margin: 0 0 0.75rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.brand {
+  background: linear-gradient(90deg, #7c6cff, #b56cff, #e06cff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.home-title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.8rem, 2.6vw, 2.6rem);
+  line-height: 1.15;
+}
+
+.accent {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 18px rgba(181, 108, 255, 0.25);
+}
+
+.home-subtitle {
+  margin: 0 0 2rem;
+  max-width: 70ch;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.soon {
+  color: rgba(181, 108, 255, 0.9);
+  font-weight: 600;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 780px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* cartes */
+.feature-card {
+  position: relative;
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+
+  padding: 1.1rem 1.1rem;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  border-color: rgba(181, 108, 255, 0.35);
+  box-shadow: 0 10px 35px rgba(124, 108, 255, 0.25);
+}
+
+.feature-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.feature-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.feature-icon.ok {
+  box-shadow: 0 0 18px rgba(124, 108, 255, 0.18);
+}
+
+.feature-icon.soon {
+  box-shadow: 0 0 18px rgba(181, 108, 255, 0.22);
+}
+
+.feature-soon {
+  border-color: rgba(181, 108, 255, 0.25);
+}
+
+.badge-soon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+
+  background: rgba(181, 108, 255, 0.18);
+  border: 1px solid rgba(181, 108, 255, 0.35);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* =========================
+   TITRES DE CARTES – HOME
+   ========================= */
+.home-card-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.2;
+
+  background: linear-gradient(90deg, #7c6cff, #b56cff, #e06cff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  text-shadow: 0 0 14px rgba(124, 108, 255, 0.18);
+}
+
+/* état désactivé */
+.feature-card.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.feature-card.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}

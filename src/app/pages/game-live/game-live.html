@@ -1,0 +1,15 @@
+<a [routerLink]="['/games', gameSlug]">← Retour à la fiche jeu</a>
+
+<h2>Lives – {{ gameTitle }}</h2>
+
+@if (lives.length === 0) {
+<p>Aucun live renseigné pour ce jeu pour le moment.</p>
+<p>Tu pourras en ajouter plus tard.</p>
+} @else { @for (l of lives; track l.url) {
+<div style="margin-bottom: 1rem">
+  <p>
+    <strong>{{ l.name }}</strong> ({{ l.platform }})
+  </p>
+  <a [href]="l.url" target="_blank" rel="noopener"> Voir le live </a>
+</div>
+} }

@@ -1,0 +1,30 @@
+<h2>News</h2>
+
+@if (news.length === 0) {
+<p>Aucune news pour le moment.</p>
+} @else {
+<ul>
+  @for (n of news; track n.id) {
+  <li style="margin-bottom: 1rem">
+    <a [routerLink]="['/news', n.slug]"
+      ><strong>{{ n.title }}</strong></a
+    >
+
+    <div style="opacity: 0.85; margin-top: 0.25rem">
+      @if (n.createdAt) {
+      <small>📅 {{ n.createdAt | date : 'dd/MM/yyyy' }}</small>
+      } @if (n.game) {
+      <small>
+        — Jeu :
+        <a [routerLink]="['/games', n.game.slug]">{{ n.game.title }}</a>
+      </small>
+      }
+    </div>
+
+    @if (n.excerpt) {
+    <p style="margin: 0.5rem 0 0; opacity: 0.9">{{ n.excerpt }}...</p>
+    }
+  </li>
+  }
+</ul>
+}

@@ -1,0 +1,23 @@
+.header {
+  border-bottom: 1px solid #ddd;
+  padding: 1rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.nav a.active {
+  text-decoration: underline;
+}
+
+.container {
+  padding: 2rem;
+}

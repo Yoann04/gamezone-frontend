@@ -1,0 +1,55 @@
+<section class="hero">
+  <div class="hero__image"></div>
+  <h1 class="hero__title">GameZone</h1>
+  <div class="hero__blur-bottom"></div>
+</section>
+
+<section class="home-content">
+  <p class="home-kicker">Bienvenue sur <span class="brand">GameZone</span></p>
+
+  <h2 class="home-title">L’essentiel du jeu vidéo, <span class="accent">au même endroit</span>.</h2>
+
+  <p class="home-subtitle">
+    Découvrez des fiches de jeux claires, naviguez par catégories et suivez les dernières news.
+    <span class="soon">Les lives arrivent bientôt.</span>
+  </p>
+
+  <div class="feature-grid">
+    <!-- JEUX -->
+    <a class="feature-card" routerLink="/games">
+      <span class="feature-icon ok">🎮</span>
+      <div>
+        <h3 class="home-card-title">Jeux</h3>
+        <p>Liste complète + fiches détaillées (description, date, catégorie).</p>
+      </div>
+    </a>
+
+    <!-- CATÉGORIES -->
+    <a class="feature-card" routerLink="/categories">
+      <span class="feature-icon ok">🧩</span>
+      <div>
+        <h3 class="home-card-title">Catégories</h3>
+        <p>Navigation rapide par genre (RPG, FPS, Open World…).</p>
+      </div>
+    </a>
+
+    <!-- NEWS -->
+    <a class="feature-card" routerLink="/news">
+      <span class="feature-icon ok">📰</span>
+      <div>
+        <h3 class="home-card-title">News</h3>
+        <p>Articles liés aux jeux pour suivre l’actu.</p>
+      </div>
+    </a>
+
+    <!-- LIVES (désactivé) -->
+    <div class="feature-card feature-soon disabled">
+      <span class="feature-icon soon">🟣</span>
+      <div>
+        <h3 class="home-card-title">Lives</h3>
+        <p>Bientôt disponible : streams & contenus en direct.</p>
+      </div>
+      <span class="badge-soon">Bientôt</span>
+    </div>
+  </div>
+</section>

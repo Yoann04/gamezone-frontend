@@ -1,0 +1,18 @@
+<a routerLink="/categories">← Retour catégories</a>
+
+@if (category) {
+<h2>Catégorie : {{ category.name }}</h2>
+
+@if (games.length === 0) {
+<p>Aucun jeu dans cette catégorie.</p>
+} @else {
+<ul>
+  @for (g of games; track g.id) {
+  <li>
+    <a [routerLink]="['/games', g.slug]">{{ g.title }}</a>
+  </li>
+  }
+</ul>
+} } @else {
+<p>Chargement...</p>
+}

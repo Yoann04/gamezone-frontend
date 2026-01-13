@@ -1,0 +1,36 @@
+<section class="games">
+  <header class="games__header">
+    <h2 class="games__title">Jeux</h2>
+    <p class="games__subtitle">Parcours la liste et ouvre une fiche pour voir le détail.</p>
+  </header>
+
+  @if (loading) {
+  <p>Chargement…</p>
+  } @else if (error) {
+  <p class="games__error">{{ error }}</p>
+  } @else if (games.length === 0) {
+  <p>Aucun jeu pour le moment.</p>
+  } @else {
+  <div class="games__grid">
+    @for (game of games; track game.id) {
+    <article class="game-card">
+      <a class="game-card__link" [routerLink]="['/games', game.slug]">
+        <img class="game-card__cover" [src]="coverSrc(game)" [alt]="game.title" loading="lazy" />
+        <div class="game-card__body">
+          <h3 class="game-card__title">{{ game.title }}</h3>
+
+          @if (game.category) {
+          <p class="game-card__meta">
+            Catégorie :
+            <a class="game-card__category" [routerLink]="['/categories', game.category.slug]">
+              {{ game.category.name }}
+            </a>
+          </p>
+          }
+        </div>
+      </a>
+    </article>
+    }
+  </div>
+  }
+</section>

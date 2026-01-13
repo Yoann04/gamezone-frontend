@@ -1,0 +1,79 @@
+<a class="back" routerLink="/games">← Retour</a>
+
+@if (loading) {
+<p>Chargement…</p>
+} @else if (error) {
+<p class="error">{{ error }}</p>
+} @else if (game) {
+<section class="game-detail">
+  <header class="game-detail__header">
+    <h2 class="game-detail__title">{{ game.title }}</h2>
+
+    @if (game.category) {
+    <p class="game-detail__meta">
+      <strong>Catégorie :</strong>
+      <a [routerLink]="['/categories', game.category.slug]">{{ game.category.name }}</a>
+    </p>
+    } @if (game.releaseDate) {
+    <p class="game-detail__meta">
+      <strong>Date :</strong> {{ game.releaseDate | date : 'dd/MM/yyyy' }}
+    </p>
+    } @if (game.rating) {
+    <p class="game-detail__meta">
+      <strong>Note :</strong> {{ game.rating }}/5 @if (game.ratingCount) {
+      <span>({{ game.ratingCount }} avis)</span> }
+    </p>
+    }
+  </header>
+
+  <img class="game-detail__cover" [src]="coverSrc()" [alt]="game.title" />
+
+  @if (game.description) {
+  <p class="game-detail__desc">{{ game.description }}</p>
+  } @if (game.longDescription) {
+  <p class="game-detail__desc">{{ game.longDescription }}</p>
+  } @if (game.platforms?.length) {
+  <h3>Plateformes</h3>
+  <ul>
+    @for (p of game.platforms; track p) {
+    <li>{{ p }}</li>
+    }
+  </ul>
+  } @if (game.publisher || game.developer || game.genre) {
+  <h3>Infos</h3>
+  <ul>
+    @if (game.genre) {
+    <li><strong>Genre :</strong> {{ game.genre }}</li>
+    } @if (game.publisher) {
+    <li><strong>Éditeur :</strong> {{ game.publisher }}</li>
+    } @if (game.developer) {
+    <li><strong>Développeur :</strong> {{ game.developer }}</li>
+    }
+  </ul>
+  } @if (game.pros?.length) {
+  <h3>Points forts</h3>
+  <ul>
+    @for (x of game.pros; track x) {
+    <li>{{ x }}</li>
+    }
+  </ul>
+  } @if (game.cons?.length) {
+  <h3>Points faibles</h3>
+  <ul>
+    @for (x of game.cons; track x) {
+    <li>{{ x }}</li>
+    }
+  </ul>
+  } @if (game.reviews?.length) {
+  <h3>Avis</h3>
+  <ul>
+    @for (r of game.reviews; track r.author + r.note) {
+    <li>
+      <strong>{{ r.author }}</strong> — {{ r.note }}/5<br />
+      <span>{{ r.content }}</span>
+    </li>
+    }
+  </ul>
+  }
+</section>
+}
